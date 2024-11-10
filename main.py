@@ -80,7 +80,7 @@ def backmain():
     print('back/restart = b/r')
     backmainper = input('> ')
     if backmainper == 'r':
-        os.system('clr||clear')
+        os.system('cls||clear')
         functions[numlab]()
     elif backmainper == 'b':
         main()
