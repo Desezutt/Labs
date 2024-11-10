@@ -54,7 +54,7 @@ numlab = 1984
 
 
 def main():
-    os.system('clr||clear')
+    os.system('cls||clear')
     banner()
     lads()
     labstart()
@@ -68,7 +68,7 @@ def labstart():
     if numlab.isdigit():
         numlab = int(numlab)
         if numlab in functions:
-            os.system('clr||clear')
+            os.system('cls||clear')
             functions[numlab]()
     else:
         print('[-] invalid value')
@@ -112,7 +112,7 @@ def laba1():
     elif unlab == '2':
         laba1_2()
     elif unlab == 'b':
-        os.system('clr||clear')
+        os.system('cls||clear')
         main()
     else:
         error()
@@ -121,7 +121,7 @@ def laba1():
 def laba1_1():
     global numlab
     numlab = 1.1
-    os.system('clr||clear')
+    os.system('cls||clear')
     print('a = cos^4 * x + sin^2 * y + 1/4 * sin^2 * 2 * x - 1\n----------------------------------------------------')
     la11 = (input('число 1 (x)\n> '))
     if la11.replace('.', '', 1).isdigit():
@@ -142,7 +142,7 @@ def laba1_1():
 def laba1_2():
     global numlab
     numlab = 1.2
-    os.system('clr||clear')
+    os.system('cls||clear')
     print('Вывод уравнения прямой, проходящей через 2 точки (введите '
           'координаты)\n------------------------------------------------')
     x1 = (input('x1 > '))
@@ -179,7 +179,7 @@ def laba1_2():
 
 
 def laba2():
-    os.system('clr||clear')
+    os.system('cls||clear')
     unlab = input('   |-----------------------------------|\n'
                   ' 1 |y = { x + 2 * x * sin 3 * x, x <= π|\n'
                   '   |      cos x + 2,             x > π |\n'
@@ -208,7 +208,7 @@ def laba2():
     elif unlab == '4':
         laba2_4()
     elif unlab == 'b':
-        os.system('clr||clear')
+        os.system('cls||clear')
         main()
     else:
         error()
@@ -217,7 +217,7 @@ def laba2():
 def laba2_1():
     global numlab
     numlab = 2.1
-    os.system('clr||clear')
+    os.system('cls||clear')
     print('y = { x + 2 * x * sin 3 * x, x <= π\n'
           '      cos x + 2,             x > π'
           '\n--------------------------------------')
@@ -238,7 +238,7 @@ def laba2_1():
 def laba2_2():
     global numlab
     numlab = 2.2
-    os.system('clr||clear')
+    os.system('cls||clear')
     print('программа определит какое из трёх вводимых чисел наибольшее'
           '\n-----------------------------------------------------------')
     x1 = (input("[1]\n> "))
