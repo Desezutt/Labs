@@ -326,9 +326,6 @@ functions = {
     2: laba2,
     2.1: laba2_1,
     2.2: laba2_2,
-    3: laba3,
-    3.1: laba3_1,
-    3.3: lads3_2
 }
 
 if __name__ == "__main__":
