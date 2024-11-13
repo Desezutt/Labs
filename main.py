@@ -103,7 +103,6 @@ def ask_run_again() -> bool:
         print('back/restart = b/r')
         match input('> '):
             case 'r':
-                clear()
                 return True
             case 'b':
                 return False
