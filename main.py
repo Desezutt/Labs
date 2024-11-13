@@ -88,6 +88,7 @@ def run_lab(lab_num: int):
 def run_exer(lab_num: int, exer_num: int):
     while True:
         try:
+            clear()
             labs[lab_num].exers[exer_num]()
         except LabException as exception:
             print(f'[-] {' '.join(exception.args)}')

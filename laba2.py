@@ -1,5 +1,5 @@
 from math import sin, cos, pi
-from utils import clear, LabException
+from utils import LabException
 
 
 header = '''
@@ -25,7 +25,6 @@ header = '''
 
 
 def exer1():
-    clear()
     print('y = { x + 2 * x * sin 3 * x, x <= π\n'
           '      cos x + 2,             x > π\n'
           '--------------------------------------')
@@ -41,7 +40,6 @@ def exer1():
 
 
 def exer2():
-    clear()
     print('программа определит какое из трёх вводимых чисел наибольшее\n'
           '-----------------------------------------------------------')
     x1 = input("[1]\n> ")
