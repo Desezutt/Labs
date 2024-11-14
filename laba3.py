@@ -34,21 +34,22 @@ def exer1():
 
 
 def exer2():
-    fb1, fb2 = 1, 1
-    i = 0
     print('элементы ряда Фибоначчи\n'
           '────────────────────────')
     x = input("count\n> ")
     if not x.isdigit():
         raise LabException('invalid value')
     x = int(x)
-    print('\n[+]')
-    while i < x:
-        fbs = fb1 + fb2
-        fb1 = fb2
-        print(f'\b{fb2} ')
-        fb2 = fbs
-        i = i + 1
+    print('')
+
+    def fib(num: int):
+        if num == 0:
+            return 0
+        if num < 3:
+            return 1
+        return fib(num - 1)+fib(num - 2)
+    for i in range(x):
+        print(f'[+] {fib(i)}')
     print('────────────────────────')
 
 
