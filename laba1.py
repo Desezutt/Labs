@@ -17,11 +17,11 @@ header = '''   ┌────────────────────�
 def exer1():
     print('a = cos^4 * x + sin^2 * y + 1/4 * sin^2 * 2 * x - 1\n'
           '───────────────────────────────────────────────────')
-    la11 = input('(x) > ')
+    la11 = input('x > ')
     if not la11.replace('.', '', 1).isdigit():
         raise LabException('invalid value')
     la11 = float(la11)
-    la12 = input('(y) > ')
+    la12 = input('y > ')
     if not la12.replace('.', '', 1).isdigit():
         raise LabException('invalid value')
     la12 = float(la12)
