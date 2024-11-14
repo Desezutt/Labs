@@ -48,7 +48,7 @@ def main():
     while True:
         clear()
         print(banner)
-        lab_num = input('select lab > ')
+        lab_num = input('select lab\n> ')
         if not lab_num.isdigit():
             print('[-] invalid value')
             sleep(1)
