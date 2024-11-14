@@ -40,16 +40,13 @@ def exer2():
     if not x.isdigit():
         raise LabException('invalid value')
     x = int(x)
-    print('')
+    print()
 
-    def fib(num: int):
-        if num == 0:
-            return 0
-        if num < 3:
-            return 1
-        return fib(num - 1)+fib(num - 2)
+    fib = [1, 1]
+    while len(fib) < x:
+        fib.append(fib[-2] + fib[-1])
     for i in range(x):
-        print(f'[+] {fib(i)}')
+        print(f'[+] {fib[i]}')
     print('────────────────────────')
 
 
