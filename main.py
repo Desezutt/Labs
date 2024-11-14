@@ -3,21 +3,36 @@ import sys
 from datetime import datetime
 from time import sleep
 from utils import clear, LabException
+import subprocess
 
 import laba1
 import laba2
 import laba3
 
+labs = {
+    1: laba1,
+    2: laba2,
+    3: laba3,
+}
+
+
+def get_commit_count():
+    result = subprocess.run(["git", "rev-list", "--count", "HEAD"], capture_output=True, text=True)
+    return int(result.stdout.strip())
+
+
+gitcom: int = get_commit_count()
+keylabs = len(labs)
+
 
 banner = f'''██╗       ███╗  ██████╗  ██████╗
 ██║      ██╝██╗ ██╔═╝██╗███╔═══╝
 ██║     ██╝  ██╗██████╔╝  ███╗
-██║     ███████║██╔═╝██╗    ███╗         v0.15.1
+██║     ███████║██╔═╝██╗    ███╗         v0.{keylabs}.{gitcom}
 ███████╗██╔══██║██████╔╝██████╔╝
 ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═════╝
 [+] {datetime.now()}
 [+] {sys.platform} OS
-[+] labs = 31
 [+] by Den and Alis :3
 ─────────────────────────────────
 00 |> exit
@@ -30,7 +45,7 @@ banner = f'''██╗       ███╗  ██████╗  ████�
 07 |> 
 08 |> 
 09 |> 
-10 |>  
+10 |> 
 11 |> 
 12 |> 
 13 |> 
@@ -122,13 +137,6 @@ def ask_run_again() -> bool:
                 print('[-] invalid value\n')
                 sleep(1)
                 continue
-
-
-labs = {
-    1: laba1,
-    2: laba2,
-    3: laba3
-}
 
 
 if __name__ == "__main__":
