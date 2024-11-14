@@ -22,7 +22,7 @@ def get_commit_count():
 
 
 gitcom: int = get_commit_count()
-keylabs = len(labs)
+keylabs: int = len(labs)
 
 
 banner = f'''██╗       ███╗  ██████╗  ██████╗
