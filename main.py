@@ -9,24 +9,14 @@ import os
 from labs import labs_list
 
 
-def get_commit_count():
-    result = subprocess.run(["git", "rev-list", "--count", "HEAD"], capture_output=True, text=True)
+def get_commit_count() -> int:
+    result = subprocess.run(['git', 'rev-list', '--count', 'HEAD'], capture_output=True, text=True)
     return int(result.stdout.strip())
-
-
-def ver():
-    global gitcom
-    fin_ver: int = 0
-    alt_gitcom = gitcom
-    while alt_gitcom > 100:
-        alt_gitcom = alt_gitcom - 100
-        fin_ver = fin_ver + 1
-    return fin_ver
 
 
 gitcom: int = get_commit_count()
 keylabs: int = len(labs_list)
-version: int = ver()
+version: int = gitcom // 100
 
 
 banner = f'''██╗       ███╗  ██████╗  ██████╗
@@ -75,7 +65,7 @@ banner = f'''██╗       ███╗  ██████╗  ████�
 '''
 
 
-def main():
+def main() -> None:
     while True:
         clear()
         print(banner)
@@ -88,7 +78,7 @@ def main():
         if lab_num == 0:
             break
         elif lab_num == 99:
-            os.system(f'bat main.py')
+            os.system('bat main.py')
             print(banner)
         elif lab_num in labs_list:
             run_lab(lab_num)
@@ -100,7 +90,7 @@ def main():
     print('[LABS] goodbye :<')
 
 
-def run_lab(lab_num: int):
+def run_lab(lab_num: int) -> None:
     while True:
         clear()
         print(labs_list[lab_num].header, end='')
@@ -124,7 +114,7 @@ def run_lab(lab_num: int):
             continue
 
 
-def run_exer(lab_num: int, exer_num: int):
+def run_exer(lab_num: int, exer_num: int) -> None:
     while True:
         try:
             labs_list[lab_num].exers[exer_num]()
@@ -150,5 +140,5 @@ def ask_run_again() -> bool:
                 continue
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -7,8 +7,8 @@ class LabException(Exception):
 
 
 def clear():
-    if sys.platform == "win32":
-        os.system("cls")
+    if sys.platform == 'win32':
+        os.system('cls')
     else:
-        print("\033[H\033[2J\033[3J", end="")
-#              ^^^^^^^^^^^^^^^^^^^^^                 НЕ НОРМИСЫ!!!
+        print('\033[H\033[2J\033[3J', end='')
+        # d    ^^^^^^^^^^^^^^^^^^^^   НЕ НОРМИСЫ!!!
