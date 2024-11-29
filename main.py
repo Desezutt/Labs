@@ -6,9 +6,7 @@ from utils import clear, LabException
 import subprocess
 import os
 
-import laba1
-import laba2
-import laba3
+from labs import (laba1, laba2, laba3)
 
 labs = {
     1: laba1,
