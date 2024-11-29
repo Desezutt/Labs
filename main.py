@@ -6,13 +6,7 @@ from utils import clear, LabException
 import subprocess
 import os
 
-from labs import (laba1, laba2, laba3)
-
-labs = {
-    1: laba1,
-    2: laba2,
-    3: laba3,
-}
+from labs import labs_list
 
 
 def get_commit_count():
@@ -31,7 +25,7 @@ def ver():
 
 
 gitcom: int = get_commit_count()
-keylabs: int = len(labs)
+keylabs: int = len(labs_list)
 version: int = ver()
 
 
@@ -96,7 +90,7 @@ def main():
         elif lab_num == 99:
             os.system(f'bat main.py')
             print(banner)
-        elif lab_num in labs:
+        elif lab_num in labs_list:
             run_lab(lab_num)
         else:
             print('[-] invalid value')
@@ -109,7 +103,7 @@ def main():
 def run_lab(lab_num: int):
     while True:
         clear()
-        print(labs[lab_num].header, end='')
+        print(labs_list[lab_num].header, end='')
         exer_num = input('> ')
         if exer_num == 'b':
             return
@@ -117,10 +111,10 @@ def run_lab(lab_num: int):
             print('[-] invalid value')
             sleep(1)
             continue
-        elif (int(exer_num)) == (int(len(labs[lab_num].exers)) + 1):
+        elif int(exer_num) == len(labs_list[lab_num].exers) + 1:
             os.system(f'bat laba{lab_num}.py')
-            print(labs[lab_num].header, end='')
-        elif int(exer_num) in labs[lab_num].exers:
+            print(labs_list[lab_num].header, end='')
+        elif int(exer_num) in labs_list[lab_num].exers:
             run_exer(lab_num, int(exer_num))
             return
         else:
@@ -132,7 +126,7 @@ def run_lab(lab_num: int):
 def run_exer(lab_num: int, exer_num: int):
     while True:
         try:
-            labs[lab_num].exers[exer_num]()
+            labs_list[lab_num].exers[exer_num]()
         except LabException as exception:
             print(f'[-] {' '.join(exception.args)}')
             sleep(1)
