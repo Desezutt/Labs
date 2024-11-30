@@ -115,6 +115,7 @@ def run_lab(lab_num: int):
             os.system(f'bat laba{lab_num}.py')
             print(labs_list[lab_num].header, end='')
         elif int(exer_num) in labs_list[lab_num].exers:
+            clear()
             run_exer(lab_num, int(exer_num))
             return
         else:
