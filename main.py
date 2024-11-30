@@ -116,12 +116,10 @@ def run_lab(lab_num: int):
             sleep(1)
             continue
         elif (int(exer_num)) == (int(len(labs[lab_num].exers)) + 1):
-            #print(f'cat {lab_num}.py')
             clear()
             print()
             os.system(f'cat laba{lab_num}.py')
             input()
-            #sleep(10)
         elif int(exer_num) in labs[lab_num].exers:
             run_exer(lab_num, int(exer_num))
             return
