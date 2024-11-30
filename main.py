@@ -4,6 +4,7 @@ from datetime import datetime
 from time import sleep
 from utils import clear, LabException
 import subprocess
+import os
 
 import laba1
 import laba2
@@ -21,14 +22,25 @@ def get_commit_count():
     return int(result.stdout.strip())
 
 
+def ver():
+    global gitcom
+    fin_ver: int = 0
+    alt_gitcom = gitcom
+    while alt_gitcom > 100:
+        alt_gitcom = alt_gitcom - 100
+        fin_ver = fin_ver + 1
+    return fin_ver
+
+
 gitcom: int = get_commit_count()
 keylabs: int = len(labs)
+version: int = ver()
 
 
 banner = f'''██╗       ███╗  ██████╗  ██████╗
 ██║      ██╝██╗ ██╔═╝██╗███╔═══╝
 ██║     ██╝  ██╗██████╔╝  ███╗
-██║     ███████║██╔═╝██╗    ███╗         v0.{keylabs}.{gitcom}
+██║     ███████║██╔═╝██╗    ███╗         v{version}.{keylabs}.{gitcom}
 ███████╗██╔══██║██████╔╝██████╔╝
 ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═════╝
 [+] {datetime.now()}
@@ -103,6 +115,11 @@ def run_lab(lab_num: int):
             print('[-] invalid value')
             sleep(1)
             continue
+        elif (int(exer_num)) == (int(len(labs[lab_num].exers)) + 1):
+            #print(f'cat {lab_num}.py')
+            os.system(f'cat laba{lab_num}.py')
+            input()
+            #sleep(10)
         elif int(exer_num) in labs[lab_num].exers:
             run_exer(lab_num, int(exer_num))
             return
@@ -115,7 +132,6 @@ def run_lab(lab_num: int):
 def run_exer(lab_num: int, exer_num: int):
     while True:
         try:
-            clear()
             labs[lab_num].exers[exer_num]()
         except LabException as exception:
             print(f'[-] {' '.join(exception.args)}')
