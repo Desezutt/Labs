@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import colorama
 import sys
 from datetime import datetime
 from time import sleep
@@ -66,6 +67,10 @@ banner = f'''██╗       ███╗  ██████╗  ████�
 
 
 def main() -> None:
+    if os_platform() != 'bat':
+        clear()
+        print('[LABS] download \'bat\' for syntax highlighting')
+        sleep(7)
     while True:
         clear()
         print(banner)
@@ -78,7 +83,7 @@ def main() -> None:
         if lab_num == 0:
             break
         elif lab_num == 99:
-            os.system('bat main.py')
+            os.system(f'{os_platform()} main.py')
             print(banner)
         elif lab_num in labs_list:
             run_lab(lab_num)
@@ -102,7 +107,7 @@ def run_lab(lab_num: int) -> None:
             sleep(1)
             continue
         elif int(exer_num) == len(labs_list[lab_num].exers) + 1:
-            os.system(f'bat laba{lab_num}.py')
+            os.system(f'{os_platform()} labs/laba{lab_num}.py')
             print(labs_list[lab_num].header, end='')
         elif int(exer_num) in labs_list[lab_num].exers:
             clear()
@@ -124,6 +129,21 @@ def run_exer(lab_num: int, exer_num: int) -> None:
             continue
         if not ask_run_again():
             return
+
+
+def os_platform() -> str:
+    if sys.platform == 'win32':
+        openator = 'notepad'
+    else:
+        result = subprocess.run(['which', 'bat']).returncode
+        if result == 0:
+            openator = 'bat'
+        else:
+            openator = 'less'
+            print('download \'bat\' for syntax highlighting')
+            sleep(5)
+
+    return openator
 
 
 def ask_run_again() -> bool:
