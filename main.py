@@ -140,8 +140,6 @@ def os_platform() -> str:
             openator = 'bat'
         else:
             openator = 'less'
-            print('download \'bat\' for syntax highlighting')
-            sleep(5)
 
     return openator
 
