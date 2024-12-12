@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import colorama
 import sys
 from datetime import datetime
@@ -92,7 +93,7 @@ def main() -> None:
             sleep(1)
             continue
     clear()
-    print('[LABS] goodbye :<')
+    print('[LABS] goodbye <3')
 
 
 def run_lab(lab_num: int) -> None:
@@ -133,15 +134,13 @@ def run_exer(lab_num: int, exer_num: int) -> None:
 
 def os_platform() -> str:
     if sys.platform == 'win32':
-        openator = 'notepad'
+        return 'notepad'
     else:
         result = subprocess.run(['which', 'bat']).returncode
         if result == 0:
-            openator = 'bat'
+            return 'bat'
         else:
-            openator = 'less'
-
-    return openator
+            return 'less'
 
 
 def ask_run_again() -> bool:
@@ -159,4 +158,8 @@ def ask_run_again() -> bool:
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        clear()
+        print('[LABS] goodbye <3')
